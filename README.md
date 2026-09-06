@@ -116,6 +116,22 @@ A BrasilAPI retorna dados como:
 - CEP;
 - telefone.
 
+### Informações sobre a API externa
+
+- **Serviço:** BrasilAPI
+- **Tipo:** API pública externa
+- **Cadastro:** não é necessário para a rota utilizada neste projeto
+- **API Key:** não é necessária para a rota utilizada
+- **Licença do projeto BrasilAPI:** MIT
+- **Rota utilizada:** `GET /api/cnpj/v1/{cnpj}`
+- **Finalidade no Fornecedor Fácil:** consultar os dados cadastrais de uma empresa a partir do CNPJ informado pelo usuário.
+
+Exemplo:
+
+```text
+GET https://brasilapi.com.br/api/cnpj/v1/19131243000197
+```
+
 ### Regra importante
 
 Consultar uma empresa na BrasilAPI **não salva automaticamente** o fornecedor na base local.
@@ -331,6 +347,13 @@ A aplicação possui:
 - layout responsivo para telas menores.
 
 ---
+## Arquitetura da aplicação
+
+O Fornecedor Fácil utiliza uma interface web em HTML, CSS e JavaScript, uma API REST própria desenvolvida em Flask, persistência em SQLite e integração direta com a BrasilAPI.
+
+A execução dos componentes desenvolvidos é realizada com Docker e Docker Compose.
+
+![Arquitetura do Fornecedor Fácil](docs/arquitetura-fornecedor-facil.png)
 
 ## Projeto
 
