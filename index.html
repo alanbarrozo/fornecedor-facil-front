@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fornecedor Fácil</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="container">
+
+        <header>
+            <h1>Fornecedor Fácil</h1>
+
+            <p>
+                Consulte os dados de uma empresa pelo CNPJ.
+            </p>
+        </header>
+
+        <section class="consulta">
+
+            <label for="cnpj">
+                CNPJ
+            </label>
+
+            <div class="consulta-linha">
+
+                <input
+                    type="text"
+                    id="cnpj"
+                    placeholder="00.000.000/0000-00"
+                    maxlength="18"
+                >
+
+                <button id="btnConsultar">
+                    Consultar
+                </button>
+
+            </div>
+
+            <p id="mensagem"></p>
+
+        </section>
+
+        <section
+            id="resultado"
+            class="resultado hidden"
+        >
+        </section>
+
+        <section class="fornecedores-salvos">
+
+            <div class="titulo-lista">
+                <div>
+                    <h2>Fornecedores cadastrados</h2>
+                    <p>
+                        Empresas salvas na sua base de fornecedores.
+                    </p>
+                </div>
+
+                <button id="btnAtualizarLista">
+                    Atualizar lista
+                </button>
+            </div>
+
+            <div class="filtros-fornecedores">
+
+                <div class="campo-filtro">
+                    <label for="filtroUf">
+                        UF
+                    </label>
+
+                    <input
+                        id="filtroUf"
+                        type="text"
+                        maxlength="2"
+                        placeholder="Ex.: GO"
+                    >
+                </div>
+
+                <div class="campo-filtro">
+                    <label for="filtroCategoria">
+                        Categoria
+                    </label>
+
+                    <input
+                        id="filtroCategoria"
+                        type="text"
+                        placeholder="Ex.: Tecnologia"
+                    >
+                </div>
+
+                <div class="acoes-filtro">
+
+                    <button
+                        id="btnFiltrar"
+                        type="button"
+                    >
+                        Filtrar
+                    </button>
+
+                    <button
+                        id="btnLimparFiltros"
+                        type="button"
+                        class="btn-secundario"
+                    >
+                        Limpar
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div id="listaFornecedores">
+                <p>Carregando fornecedores...</p>
+            </div>
+
+        </section>
+
+    </main>
+
+    <div id="modalEditar" class="modal hidden">
+
+    <div class="modal-conteudo">
+
+        <button
+            id="btnFecharModal"
+            class="modal-fechar"
+            type="button"
+            aria-label="Fechar"
+        >
+            ×
+        </button>
+
+        <h2>Editar fornecedor</h2>
+
+        <p id="empresaEdicao"></p>
+
+        <form id="formEditarFornecedor">
+
+            <label for="categoriaEdicao">
+                Categoria
+            </label>
+
+            <input
+                id="categoriaEdicao"
+                type="text"
+            >
+
+            <label for="observacaoEdicao">
+                Observação
+            </label>
+
+            <textarea
+                id="observacaoEdicao"
+                rows="4"
+            ></textarea>
+
+            <div class="modal-acoes">
+
+                <button type="submit">
+                    Salvar alterações
+                </button>
+
+                <button
+                    id="btnCancelarEdicao"
+                    type="button"
+                    class="btn-secundario"
+                >
+                    Cancelar
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+    <div id="modalExcluir" class="modal hidden">
+
+    <div class="modal-conteudo modal-confirmacao">
+
+        <h2>Excluir fornecedor</h2>
+
+        <p>
+            Tem certeza que deseja excluir este fornecedor?
+        </p>
+
+        <p id="empresaExclusao" class="empresa-exclusao"></p>
+
+        <p class="aviso-exclusao">
+            Esta ação não poderá ser desfeita.
+        </p>
+
+        <div class="modal-acoes">
+
+            <button
+                id="btnCancelarExclusao"
+                type="button"
+                class="btn-secundario"
+            >
+                Cancelar
+            </button>
+
+            <button
+                id="btnConfirmarExclusao"
+                type="button"
+                class="btn-excluir"
+            >
+                Excluir fornecedor
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
