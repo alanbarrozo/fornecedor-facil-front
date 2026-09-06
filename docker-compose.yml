@@ -1,0 +1,28 @@
+services:
+
+  api:
+    build:
+      context: ../fornecedor-facil-api
+
+    ports:
+      - "5000:5000"
+
+    volumes:
+      - fornecedor-facil-dados:/app/dados
+
+
+  front:
+    build:
+      context: .
+
+    ports:
+      - "8080:80"
+
+    depends_on:
+      - api
+
+
+volumes:
+
+  fornecedor-facil-dados:
+    name: fornecedor-facil-dados

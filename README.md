@@ -264,34 +264,27 @@ O container utiliza Nginx para servir os arquivos estáticos da aplicação.
 
 ## Docker Compose
 
-A solução completa pode ser executada pelo arquivo `docker-compose.yml`, localizado no diretório que contém os repositórios do Front-End e da API.
+O arquivo `docker-compose.yml` está localizado na raiz deste repositório.
 
-Na pasta correspondente, execute:
+Ele permite executar conjuntamente:
 
-```powershell
-docker compose up --build
-```
+- o Front-End, servido por Nginx;
+- a API Flask;
+- o volume persistente utilizado pelo banco SQLite.
 
-A aplicação ficará disponível em:
+### Estrutura esperada
+
+Os repositórios do Front-End e da API devem estar no mesmo diretório:
 
 ```text
-Front-End:
-http://127.0.0.1:8080
-
-API:
-http://127.0.0.1:5000
-
-Swagger:
-http://127.0.0.1:5000/apidocs/
-```
-
-Para encerrar:
-
-```powershell
-docker compose down
-```
-
+/
+├── fornecedor-facil-api/
+└── fornecedor-facil-front/
+    ├── docker-compose.yml
+    └── ...
 ---
+```
+
 
 ## Comunicação entre os componentes
 
